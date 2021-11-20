@@ -1,0 +1,64 @@
+<div class="container pos" *ngIf="addUser">
+    <div class="row ">
+        <div class="col-6">
+            <h1>Data Table</h1>
+
+        </div>
+        <div class="col-6">
+            <input type="text" class="form-control" placeholder="search by name" (change)="search($event.target)">
+        </div>
+    </div>
+
+    <div class="row ">
+        <div class="col-2 ">
+            <button class="btn btn-info" (click)="addUser=false"> Add User</button>
+        </div>
+        <div class="col-6 ">
+            <table class="table table-striped ">
+                <thead>
+                    <tr>
+                        <th scope="col ">#</th>
+                        <th scope="col ">Name</th>
+                        <th scope="col ">Location</th>
+                        <th scope="col ">Phone</th>
+                        <th scope="col ">Email</th>
+                        <th scope="col ">Gender</th>
+                        <th scope="col ">Cell</th>
+
+                    </tr>
+                </thead>
+                <tbody *ngIf="!searchResult">
+                    <tr *ngFor="let data of datas; let i=index ">
+                        <td scope="row ">{{i+1}}</td>
+                        <td>{{data.user.name.first +" "+ data.user.name.last }}</td>
+                        <td>{{data.user.location.city}}</td>
+                        <td>{{data.user.phone}}</td>
+                        <td>{{data.user.email}}</td>
+                        <td>{{data.user.gender}}</td>
+                        <td>{{data.user.cell}}</td>
+
+
+                    </tr>
+
+                </tbody>
+                <tbody *ngIf="searchResult">
+                    <tr>
+                        <td scope="row ">##</td>
+                        <td>{{searchResult.user.name.first +" "+ searchResult.user.name.last }}</td>
+                        <td>{{searchResult.user.location.city}}</td>
+                        <td>{{searchResult.user.phone}}</td>
+                        <td>{{searchResult.user.email}}</td>
+                        <td>{{searchResult.user.gender}}</td>
+                        <td>{{searchResult.user.cell}}</td>
+
+
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <div class="col-4 "></div>
+
+    </div>
+</div>
+<app-user *ngIf="!addUser"></app-user>
