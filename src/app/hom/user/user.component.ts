@@ -36,7 +36,7 @@ export class UserComponent implements OnInit {
     return this.userform.controls;
   }
   onSubmit(data: any) {
-    localStorage.setItem("data", JSON.stringify(data))
+    localStorage.setItem("datas", JSON.stringify(data))
    
   }
 }
